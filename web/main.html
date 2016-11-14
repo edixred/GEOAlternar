@@ -1,0 +1,260 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>GEOAlternar</title>
+        <link rel="stylesheet" href="./resources/css/main.css" media="screen"/>
+        <link rel="stylesheet" href="./resources/css/style.responsive.css" media="all"/>
+    </head>
+<body>
+    <div id="art-main">
+        <header class="art-header clearfix" style="background-image: url('img/geoalternar/p2.png');">
+            <div class="art-shapes">
+                <h1 class="art-headline" data-left="1.63%" style="left: 15%;">
+                    <img width="330" height="50" alt="" src="img/geoalternar/p6.png" alt="logogeoalternar"/>
+                </h1>
+                <div class="art-object0" data-left="50%" style="left: 775px;"></div>
+                <style>
+                #imgalternar{
+                    height:40%;
+                    width:20%;
+                    margin: 20px auto;
+                    position:relative;
+                    margin-left: 10%;
+                }
+                #slider {
+                    
+                    height:370px;
+                    width:100%;
+                    margin-top: 130px;
+                    position:relative;
+                }
+                #image {
+                    height:100%;
+                    width:100%;
+                    position:absolute;
+                }
+                .left_hold {
+                    height: 100%;
+                    width: 20%;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                }
+                .right_hold {
+                    height: 100%;
+                    width: 20%;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                }
+                .left {
+                    height:50px;
+                    width:50px;
+                    position:absolute;
+                    top:40%;
+                }
+                .right {
+                    height:50px;
+                    width:50px;
+                    position:absolute;
+                    top:40%;
+                    right:20px;
+                }
+                
+                </style>
+                <div id="slider">
+                    <img src="img/gal/ea1.png" id="image" />
+                </div>
+                <script>
+                    var imageCount = 1;
+                    var total = 12;
+
+                    function photo(x) {
+                            var image = document.getElementById('image');
+                            imageCount = imageCount + x;
+                            if(imageCount > total){imageCount = 1;}
+                            if(1>imageCount){imageCount = total;}	
+                            image.src = "img/gal/ea"+ imageCount +".png";
+                            }
+
+                    window.setInterval(function photoA() {
+                            var image = document.getElementById('image');
+                            imageCount = imageCount + 1;
+                            if(imageCount > total){imageCount = 1;}
+                            if(1>imageCount){imageCount = total;}	
+                            image.src = "img/gal/ea"+ imageCount +".png";
+                            },5000);
+                </script>
+            </div>
+            <nav class="art-nav clearfix desktop-nav" style="left: 0px;">
+                <div class="art-nav-inner">
+                    <ul class="art-hmenu">
+                        <li>
+                            <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/main.html" class="active">Inicio</a>
+                            <ul class="art-hmenu">
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/Objetivos.xhtml" class="active" style="font-size: 15px;">Objetivos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Mapas Energ&eacute;ticos</a>
+                            <ul class="art-hmenu">
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/Energia.xhtml" class="active" style="font-size: 15px;">Datos-Visualizaci&oacuten</a>
+                                </li>
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/Metodologia.xhtml" class="active" style="font-size: 15px;">Metodolog&iacutea Aplicada</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Descargas</a>
+                            <ul class="art-hmenu">
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/IniciarSesion.xhtml" class="active" style="font-size: 15px;">Iniciar Sesi&oacuten</a>
+                                </li>
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/RegistrarUsuario.xhtml" class="active" style="font-size: 15px;">Crear Cuenta</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Ayuda</a>
+                            <ul class="art-hmenu">
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/Contacto.xhtml" class="active" style="font-size: 15px;">Contactos</a>
+                                </li>
+                                <li>
+                                    <a href="http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/Manual.xhtml" class="active" style="font-size: 15px;">Manual</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+            </nav>
+        </header>
+        <div class="art-sheet clearfix">
+            <div class="art-layout-wrapper clearfix">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content clearfix">
+                            <article class="art-post art-article">
+                                <div class="art-postcontent art-postcontent-0 clearfix">
+                                    <div class="art-content-layout-wrapper layout-item-0">
+                                        <div class="art-content-layout">
+                                            <div class="art-content-layout-row">
+                                                <div class="art-layout-cell layout-item-2" style="width: 33%">
+                                                    <img width="650" height="130" src="img/gal/general.png" alt=""/>
+                                                    <div style="text-align: justify; margin-top: 3%;">
+                                                        Los mapas energ&eacuteticos representan un registro hist&oacuterico de cada una de las fuentes
+                                                        energ&eacuteticas, este registro es un promedio mensual y anual de 14 a&ntilde;os de 
+                                                        informaci&oacuten representada en un diagrama de lineas que permite observas el comportamiento 
+                                                        de los recursos en el tiempo, para los datos de viento se presesnta adicionalemente un promedio de horas
+                                                        para velocodad de viento y los diagramas de rosa de los vientos y curba de weibull con datos de los 
+                                                        ultimos 5 a&ntilde;os. En el caso del potencial h&iacutedrico se presenta la informaci&oacuten del caudal de 
+                                                        las microcuencas pertenecientes al departamento, informaci&oacuten de estaciones del IDEAM 
+                                                        escenciales para el estudio del potencial h&iacutedrico.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="art-content-layout-br layout-item-1">
+                                    </div>
+                                    <div class="art-content-layout">
+                                        <div class="art-content-layout-row">
+                                            <div class="art-layout-cell layout-item-2" style="width: 100%">
+                                                <h2>Geoalternar</h2>
+                                                <p>
+                                                    <img width="350" height="250" alt="" src="./img/geoalternar/p4.png" style="float:right;margin-left:40px;" class=""/>
+                                                </p>
+                                                <div style="font-size: 15px;text-align: justify;">
+                                                    Es una plataforma que permite visualizar el resultado de la Investigaci&oacuten para el estudio de fuentes 
+                                                    alternativas existentes en el departamento de Nari&ntilde;o, realizada en apoyo a la primera fase del 
+                                                    proyecto &quot;<a href="http://alternar.udenar.edu.co">ALTERNAR</a> - An&aacutelisis de Oportunidades Energ&eacuteticas con Fuentes 
+                                                    Alternativas en el Departamento de Nari&ntilde;o&quot; . <br/><br/>GEOAlternar
+                                                    permite visualizar mapas energ&eacuten;ticos y obtener datos sobre las 
+                                                    variaci&oacuten en el tiempo de fuentes de energ&iacutea solar, e&oacutelica, biomasa e h&iacutedrica.<br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="art-layout-cell art-sidebar1 clearfix"><div class="art-block clearfix">
+                                <div class="art-blockheader">
+                                    <h3 class="t">Funcionalidades</h3>
+                                </div>
+                                <div class="art-blockcontent">
+                                    <div class="newsdate">
+                                        <br>
+                                        <h6>1</h6>
+                                    </div><hr>
+                                    <div style="text-align: justify">
+                                        Datos de fuente energ&iacute;a en coordenada dentro del departamento de Nari&ntilde;o.<br clear="all"/>
+                                    </div>
+                                    <div class="newsdate">
+                                        <br><h6>2</h6>
+                                    </div><hr>
+                                    <div style="text-align: justify">
+                                        Mapas con referencia geogr&aacute;fica.<br clear="all"/>
+                                    </div>
+                                    <div class="newsdate">
+                                        <br>
+                                        <h6>3</h6>
+                                    </div><hr>
+                                    <div style="text-align: justify">
+                                        Reportes para radiaci&oacute;n solar.<br clear="all"/>
+                                    </div>
+                                    <div class="newsdate">
+                                        <br>
+                                        <h6>4</h6>
+                                    </div><hr>
+                                    <div style="text-align: justify">
+                                        Repositorio de documentos, scripts, archivos, etc. parte de la investigaci&oacute;n 
+                                        <a href="https://github.com/poldrosky/alternar.git">Github</a> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="art-block clearfix">
+                                <div class="art-blockheader">
+                                    <h3 class="t">Proyecto Alternar</h3>
+                                </div>
+                                <div class="art-blockcontent">
+                                    <p>
+                                        <a href="http://alternar.udenar.edu.co">
+                                            <img width="221" height="163" alt="" src="./img/geoalternar/p2.png" style="margin:0;"/>
+                                        </a>                                        
+                                    </p>
+                                    <div style="text-align: justify;">
+                                        El proyecto denominado &quot;An&aacute;lisis de Oportunidades Energ&eacute;ticas con Fuentes Alternativas 
+                                       en el Departamento de Nari&ntilde;o&quot;.
+                                    </div>
+                                    <p>
+                                        <a href="http://alternar.udenar.edu.co" class="art-button">M&aacute;s..</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer >
+                <center style="margin-bottom: 5%">
+                    <img src="img/geoalternar/p7.png" style="width: 90%;" alt=""/>
+                </center>
+            </footer>
+        </div>
+    </div>
+    <div id="art-resp">
+        <div id="art-resp-m">
+        </div>
+        <div id="art-resp-t">
+        </div>
+    </div>
+</body>
+</html>

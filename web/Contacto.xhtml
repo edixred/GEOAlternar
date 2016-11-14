@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition template="./plantilla/menu.xhtml">
+            <ui:define name="top">
+            </ui:define>
+            <ui:define name="content">
+                <table style="margin-top: 2%;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;">
+                                <div id="panel_left" style="margin-left: 5%; width: 80%;">
+                                    <h:form id="frmcomment">
+                                        <p:growl  showDetail="true" sticky="false"/>
+                                        <div style="margin-left: 5%; margin-right: 5%; text-align: justify; width: 80%;">
+                                            <p:outputLabel style="font-size: 15px;">
+                                                A través del siguiente formulario podra contactar con personal de investigación y poder solicitar aclaración de información, realizar  sugerencias, enviar tus comentarios y observaciones. 
+                                            </p:outputLabel>
+                                            <br></br>
+                                            <h:panelGrid columns="3" cellpadding="15">
+                                                <p:outputLabel value="Nombre " />
+                                                <h:inputText   label="Nombre" value="#{mbRUsuario.usuario.name}">
+                                                    <f:validator validatorId="validatorVacio"/>
+                                                </h:inputText>
+                                                <h:panelGroup></h:panelGroup>
+                                                <p:outputLabel value="Email " />
+                                                <h:inputText  label="Email" value="#{mbRUsuario.usuario.email}">
+                                                    <f:validator validatorId="validatorVacio"/>
+                                                </h:inputText>
+                                                <h:panelGroup></h:panelGroup>
+                                                <p:outputLabel value="Comentarios" />
+                                            </h:panelGrid>
+                                            <p:inputTextarea style="width: 100%;" rows="10" queryDelay="1000" minQueryLength="4" value="#{mbRUsuario.commentApp}" /><br/>
+                                            <p:commandButton value="Enviar" icon="ui-icon-disk" ajax="true" actionListener="#{mbRUsuario.enviarComentario}" update="frmcomment"/>
+                                            <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;">
+                                                <f:facet name="complete">
+                                                </f:facet>
+                                            </p:ajaxStatus>
+                                            <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                                <p:graphicImage value="./img/process.gif" />
+                                            </p:dialog>
+                                        </div>
+                                    </h:form>
+                                </div>
+                            </td>
+                            <td style="width: 50%;">
+                                <div id="panel_rigth" style="width: 80%;margin-left:  10%; margin-right: 10%; text-align: justify;">
+                                    <h3>GIIEE- Grupo de Investigación de Ingeniería Eléctrica y Electrónica</h3>
+                                    <p:outputLabel style="font-size: 15px;">
+                                        <h4>Personal Investigador</h4>
+                                        <ul>
+                                            <li>Andrés Pantoja, Director GIIEE (ad_pantoja@udenar.edu.co)</li>
+                                            <li>Andrés Calderón, Investigador principal (aocalderon@udenar.edu.co)</li>
+                                            <li>Omar Cabrera, Investigador (omarcabrerarosero@gmail.com)</li>
+                                            <li>Bayron Champutiz, Investigador (edixred@gmail.com)</li>
+                                        </ul><br/><br/>
+                                        <img src="img/grupogeoalternar.jpg" style="width: 500px;height: 350px;"/>
+                                    </p:outputLabel>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

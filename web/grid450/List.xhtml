@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListGrid450Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListGrid450Empty}" rendered="#{grid450Controller.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{grid450Controller.items.rowCount > 0}">
+                    <h:outputText value="#{grid450Controller.pagination.pageFirstItem + 1}..#{grid450Controller.pagination.pageLastItem + 1}/#{grid450Controller.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{grid450Controller.previous}" value="#{bundle.Previous} #{grid450Controller.pagination.pageSize}" rendered="#{grid450Controller.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{grid450Controller.next}" value="#{bundle.Next} #{grid450Controller.pagination.pageSize}" rendered="#{grid450Controller.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{grid450Controller.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGrid450Title_grid450Id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.grid450Id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGrid450Title_latitude3857}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude3857}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGrid450Title_longitude3857}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude3857}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGrid450Title_latitude4326}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitude4326}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListGrid450Title_longitude4326}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitude4326}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{grid450Controller.prepareView}" value="#{bundle.ListGrid450ViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{grid450Controller.prepareEdit}" value="#{bundle.ListGrid450EditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{grid450Controller.destroy}" value="#{bundle.ListGrid450DestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{grid450Controller.prepareCreate}" value="#{bundle.ListGrid450CreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListGrid450IndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body >
+        <ui:composition template="./plantilla/menu.xhtml" >
+
+            <ui:define name="top">
+                <h:form>
+                    <div id="divmenu" style="font-size: 10px;">
+                        <p:tabView dynamic="true" cache="true" style="border-left: 0px;border-radius: 0px;border-right: 0;border-top: 0px;border-spacing: 0px;border-width: 0px;padding: 0px;">
+                            <p:tab title="Biomasa(LandSat)" >
+                                <iframe src="Biomasa.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                            </p:tab>
+                            <p:tab title="Viento">
+                                <p:tabView dynamic="true" cache="true" >
+                                    <p:tab title="20 mts" >
+                                        <iframe src="Viento20m.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                                    </p:tab>
+                                    <p:tab title="50 mts" >
+                                        <iframe src="Viento.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                                    </p:tab>
+                                    <p:tab title="120 mts" >
+                                        <iframe src="Viento120m.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                                    </p:tab>
+                                </p:tabView>
+                            </p:tab>
+                            <p:tab title="Solar(MODIS)">
+                                <iframe src="SolarModis.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                            </p:tab>
+                            <p:tab title="Nubes">
+                                <iframe src="NubesModis.xhtml" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                            </p:tab>
+                            <p:tab title="Estaciones IDEAM">
+                                <iframe src="http://geoalternar.udenar.edu.co:8080/stationideam/" style="width: 99%;height:700px;" scrolling="auto"></iframe>
+                            </p:tab>
+                            <p:tab title="Potencial Hídrico">
+                                <iframe src="Hidraulica.xhtml" style="width: 99%;height:680px;" scrolling="auto"></iframe>
+                            </p:tab>
+                        </p:tabView>
+                    </div>
+                </h:form>
+                <div id="developer">
+                    GIIEE-Grupo de Investigación en Ingeniería Eléctrica y Electrónica del Departamento de Electrónica(Universidad de Nariño)
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

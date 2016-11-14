@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewGrid450Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewGrid450Label_grid450Id}"/>
+                    <h:outputText value="#{grid450Controller.selected.grid450Id}" title="#{bundle.ViewGrid450Title_grid450Id}"/>
+                    <h:outputText value="#{bundle.ViewGrid450Label_latitude3857}"/>
+                    <h:outputText value="#{grid450Controller.selected.latitude3857}" title="#{bundle.ViewGrid450Title_latitude3857}"/>
+                    <h:outputText value="#{bundle.ViewGrid450Label_longitude3857}"/>
+                    <h:outputText value="#{grid450Controller.selected.longitude3857}" title="#{bundle.ViewGrid450Title_longitude3857}"/>
+                    <h:outputText value="#{bundle.ViewGrid450Label_latitude4326}"/>
+                    <h:outputText value="#{grid450Controller.selected.latitude4326}" title="#{bundle.ViewGrid450Title_latitude4326}"/>
+                    <h:outputText value="#{bundle.ViewGrid450Label_longitude4326}"/>
+                    <h:outputText value="#{grid450Controller.selected.longitude4326}" title="#{bundle.ViewGrid450Title_longitude4326}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{grid450Controller.destroyAndView}" value="#{bundle.ViewGrid450DestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewGrid450EditLink}"/>
+                <br />
+                <h:commandLink action="#{grid450Controller.prepareCreate}" value="#{bundle.ViewGrid450CreateLink}" />
+                <br />
+                <h:commandLink action="#{grid450Controller.prepareList}" value="#{bundle.ViewGrid450ShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewGrid450IndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

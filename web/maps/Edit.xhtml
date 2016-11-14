@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMapsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMapsLabel_mapsPK_longitude}" for="mapsPK_longitude" />
+                    <h:inputText id="mapsPK_longitude" value="#{mapsController.selected.mapsPK.longitude}" title="#{bundle.EditMapsTitle_mapsPK_longitude}" required="true" requiredMessage="#{bundle.EditMapsRequiredMessage_mapsPK_longitude}"/>
+                    <h:outputLabel value="#{bundle.EditMapsLabel_mapsPK_tagType}" for="mapsPK_tagType" />
+                    <h:inputText id="mapsPK_tagType" value="#{mapsController.selected.mapsPK.tagType}" title="#{bundle.EditMapsTitle_mapsPK_tagType}" required="true" requiredMessage="#{bundle.EditMapsRequiredMessage_mapsPK_tagType}"/>
+                    <h:outputLabel value="#{bundle.EditMapsLabel_mapsPK_latitude}" for="mapsPK_latitude" />
+                    <h:inputText id="mapsPK_latitude" value="#{mapsController.selected.mapsPK.latitude}" title="#{bundle.EditMapsTitle_mapsPK_latitude}" required="true" requiredMessage="#{bundle.EditMapsRequiredMessage_mapsPK_latitude}"/>
+                    <h:outputLabel value="#{bundle.EditMapsLabel_mapsPK_tagTime}" for="mapsPK_tagTime" />
+                    <h:inputText id="mapsPK_tagTime" value="#{mapsController.selected.mapsPK.tagTime}" title="#{bundle.EditMapsTitle_mapsPK_tagTime}" required="true" requiredMessage="#{bundle.EditMapsRequiredMessage_mapsPK_tagTime}"/>
+                    <h:outputLabel value="#{bundle.EditMapsLabel_value}" for="value" />
+                    <h:inputText id="value" value="#{mapsController.selected.value}" title="#{bundle.EditMapsTitle_value}" />
+                </h:panelGrid>
+                <h:commandLink action="#{mapsController.update}" value="#{bundle.EditMapsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMapsViewLink}"/>
+                <br />
+                <h:commandLink action="#{mapsController.prepareList}" value="#{bundle.EditMapsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMapsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateGrid450Title}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateGrid450Label_grid450Id}" for="grid450Id" />
+                    <h:inputText id="grid450Id" value="#{grid450Controller.selected.grid450Id}" title="#{bundle.CreateGrid450Title_grid450Id}" required="true" requiredMessage="#{bundle.CreateGrid450RequiredMessage_grid450Id}"/>
+                    <h:outputLabel value="#{bundle.CreateGrid450Label_latitude3857}" for="latitude3857" />
+                    <h:inputText id="latitude3857" value="#{grid450Controller.selected.latitude3857}" title="#{bundle.CreateGrid450Title_latitude3857}" />
+                    <h:outputLabel value="#{bundle.CreateGrid450Label_longitude3857}" for="longitude3857" />
+                    <h:inputText id="longitude3857" value="#{grid450Controller.selected.longitude3857}" title="#{bundle.CreateGrid450Title_longitude3857}" />
+                    <h:outputLabel value="#{bundle.CreateGrid450Label_latitude4326}" for="latitude4326" />
+                    <h:inputText id="latitude4326" value="#{grid450Controller.selected.latitude4326}" title="#{bundle.CreateGrid450Title_latitude4326}" />
+                    <h:outputLabel value="#{bundle.CreateGrid450Label_longitude4326}" for="longitude4326" />
+                    <h:inputText id="longitude4326" value="#{grid450Controller.selected.longitude4326}" title="#{bundle.CreateGrid450Title_longitude4326}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{grid450Controller.create}" value="#{bundle.CreateGrid450SaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{grid450Controller.prepareList}" value="#{bundle.CreateGrid450ShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateGrid450IndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

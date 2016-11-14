@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMapsBiomassTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMapsBiomassLabel_mapsBiomassPK_tagTime}"/>
+                    <h:outputText value="#{mapsBiomassController.selected.mapsBiomassPK.tagTime}" title="#{bundle.ViewMapsBiomassTitle_mapsBiomassPK_tagTime}"/>
+                    <h:outputText value="#{bundle.ViewMapsBiomassLabel_valuePoint}"/>
+                    <h:outputText value="#{mapsBiomassController.selected.valuePoint}" title="#{bundle.ViewMapsBiomassTitle_valuePoint}"/>
+                    <h:outputText value="#{bundle.ViewMapsBiomassLabel_grid450}"/>
+                    <h:outputText value="#{mapsBiomassController.selected.grid450}" title="#{bundle.ViewMapsBiomassTitle_grid450}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mapsBiomassController.destroyAndView}" value="#{bundle.ViewMapsBiomassDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMapsBiomassEditLink}"/>
+                <br />
+                <h:commandLink action="#{mapsBiomassController.prepareCreate}" value="#{bundle.ViewMapsBiomassCreateLink}" />
+                <br />
+                <h:commandLink action="#{mapsBiomassController.prepareList}" value="#{bundle.ViewMapsBiomassShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMapsBiomassIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

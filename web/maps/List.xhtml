@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListMapsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListMapsEmpty}" rendered="#{mapsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{mapsController.items.rowCount > 0}">
+                    <h:outputText value="#{mapsController.pagination.pageFirstItem + 1}..#{mapsController.pagination.pageLastItem + 1}/#{mapsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{mapsController.previous}" value="#{bundle.Previous} #{mapsController.pagination.pageSize}" rendered="#{mapsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{mapsController.next}" value="#{bundle.Next} #{mapsController.pagination.pageSize}" rendered="#{mapsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{mapsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMapsTitle_mapsPK_latitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mapsPK.latitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMapsTitle_mapsPK_tagTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mapsPK.tagTime}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMapsTitle_mapsPK_tagType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mapsPK.tagType}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMapsTitle_mapsPK_longitude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mapsPK.longitude}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMapsTitle_value}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.value}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{mapsController.prepareView}" value="#{bundle.ListMapsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{mapsController.prepareEdit}" value="#{bundle.ListMapsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{mapsController.destroy}" value="#{bundle.ListMapsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{mapsController.prepareCreate}" value="#{bundle.ListMapsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListMapsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

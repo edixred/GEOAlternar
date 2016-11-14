@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMapsSolarTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMapsSolarLabel_mapsSolarPK_tagTime}"/>
+                    <h:outputText value="#{mapsSolarController.selected.mapsSolarPK.tagTime}" title="#{bundle.ViewMapsSolarTitle_mapsSolarPK_tagTime}"/>
+                    <h:outputText value="#{bundle.ViewMapsSolarLabel_valuePoint}"/>
+                    <h:outputText value="#{mapsSolarController.selected.valuePoint}" title="#{bundle.ViewMapsSolarTitle_valuePoint}"/>
+                    <h:outputText value="#{bundle.ViewMapsSolarLabel_grid450}"/>
+                    <h:outputText value="#{mapsSolarController.selected.grid450}" title="#{bundle.ViewMapsSolarTitle_grid450}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mapsSolarController.destroyAndView}" value="#{bundle.ViewMapsSolarDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMapsSolarEditLink}"/>
+                <br />
+                <h:commandLink action="#{mapsSolarController.prepareCreate}" value="#{bundle.ViewMapsSolarCreateLink}" />
+                <br />
+                <h:commandLink action="#{mapsSolarController.prepareList}" value="#{bundle.ViewMapsSolarShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMapsSolarIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

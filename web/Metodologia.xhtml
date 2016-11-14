@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./plantilla/menu.xhtml">
+
+            <ui:define name="top">
+            </ui:define>
+
+            <ui:define name="content">
+                <div style="width: 80%; margin-left: 10%; margin-right: 10%;margin-top: 2%; font: oblique 110% cursive; text-align: justify;">
+                    En esta sección se describe la metodología utilizada para la elaboración de los mapas de potencial de Irradiación Solar, Biomasa y Viento presentes 
+                    en el departamento de Nariño.
+                </div>
+                <h:form style="margin-top: 30px; width: 80%; margin-left: 10%; margin-right: 10%;">
+
+                    <p:fieldset legend="Irradiación Solar y Biomasa" toggleable="true" toggleSpeed="500" style="margin-top: 30px;" collapsed="false" >
+                        <div style="width: 80%; margin-left: 10%; margin-right: 10%;margin-top: 2%; font: oblique 110% cursive; text-align: justify;">
+                            <h4>A. Obtención de datos</h4>
+                            Identificación de imágenes satelitales landsat con la cobertura adecuada del departamento y 
+                            Descarga de Imágenes satelitales de un periodo considerable de tiempo.(el número de imágenes 
+                            satelitales varía según el tamaño del departamento, tiempo a ser analizado y capturas de landsat), 
+                            se utilizaron imágenes satelitales de Landsat 7. En la siguiente figura muestran 5 imágenes que fueron 
+                            utilizadas en el departamento de Nariño <br/>
+                            <center>
+                                <img src="img/metodologia/imgsatelital.png" alt=""/>
+                            </center>
+                            <h4>B. Preprocesamiento</h4>
+                            Recorte, reproyección y de las imágenes satelitales según la delimitación territorial del departamento. 
+                            Se utilizarón scripts desarrollados con el fin de que en este proceso sea automático, 
+                            el sistemas de referencia de coordenadas usado fué en EPSG:3857 para que el la escala de medida sea en metros decimales. En la siguiente figura, 
+                            se muestra una imagen recortada y re-proyectada del departamento de Nariño.
+                            <center>
+                                <img src="img/metodologia/clipnarino2.png" alt=""/>
+                            </center>
+                            <h4>C. Procesamiento y limpieza de datos</h4>
+                            En esta etapa se ingresa los datos de las imágenes satelitales a la base de datos y se elimina 
+                            datos nulos o con nubosidad, este proceso se realiza a través de scripts posteriormente se realiza la conversión 
+                            de Digital number (DN) a reflectance, según las especificaciones del sensor Landsat.
+                            <h4>D. Análisis de regresión</h4>
+                            Se realiza un análisis de regresión en la cual se encuentra el modelo tanto para biomasa como para solar, 
+                            el cual será aplicable a los datos, para encontrar el modelo apropiado se prueban 13 modelos entre los que 
+                            encontramos máquina de vectores, redes neuronales según  la correlación y el R2 que mejor resulte se aplica
+                            el modelo a los conjuntos de datos utilizando 7 bandas landsat.
+                            <center>
+                                <img src="img/metodologia/reg.png" alt="" style="width: 700px; height: 200px;"/>
+                            </center>
+                            <h4>E. Construcción de mapas</h4>
+                            En la construcción de mapas de biomasa y solar se utilizó el método Kriging que provee una solución al problema 
+                            de la estimación basada en un modelo continuo de variación espacial estocástica, el objetivo de Kriging es el de 
+                            estimar el valor de una variable aleatoria, Z, en uno o más puntos no muestreados o sobre grandes bloques, 
+                            esto hace que se pueda construir mapas con una resolución de 450 metros. En la siguiente figura se muestra un mapa de biomasa.<br/><br/>
+                            <center>
+                                <img src="img/metodologia/mapg.png" alt="" width="150" height="150"/><br/>mapa general Biomasa<br/><br/>
+                                <img src="img/metodologia/mapa.png" alt="" width="450" height="300"/><br/>mapas anuales Biomasa<br/>
+                            </center>
+                            <h4>F. Instalación, configuración de la aplicación</h4>
+                            En esta etapa hay que subir todos los mapas del departamento a geoserver para luego poder ser visualizada en 
+                            la herramienta GEOAlternar que se desarrollo.
+                        </div>
+                    </p:fieldset>
+                    <p:fieldset legend="Viento" toggleable="true" toggleSpeed="500" style="margin-top: 30px;" collapsed="true" >
+                        <div style="width: 80%; margin-left: 10%; margin-right: 10%;margin-top: 2%; font: oblique 110% cursive; text-align: justify;">
+                            <h4>A. Obtención de datos</h4>
+                            Se realizó un muestreo en el departamento de Nariño para la adquisición de series de tiempo en los puntos seleccionados
+                            a través del proveedor  VISALA INC. Para el departamento de nariño fueron necesarios 480 puntos de series 
+                            de tiempo en formato MERRA(Modern-Era Retrospective analysis for Research and Applications) los cuales tienen 
+                            una mayor resolución espacial (por hora). el muestreo realizado se observa en la siguiente figura.
+                            <center>
+                                <img src="img/metodologia/sample.png" alt="" width="300" height="270"/>
+                            </center>
+                            <h4>B. Procesamiento de datos</h4>
+                            Debido a que las series de tiempo entregadas por el proveedor están en formato csv, se debe subir estas series 
+                            de tiempo a una base de datos con coordenadas reproyectadas al sistemas de referencia de coordenadas EPSG:3857.
+                            <h4>C. Construcción mapas de velocidad de viento</h4>
+                            Al igual que el anterior componente se utilizó  Kriging para realizar la interpolación, y se crearon mapas de viento promedio en el departamento. 
+                            Adicionalmente se interpoló la dirección del  viento con la finalidad de generar y visualizar la rosa de los vientos y la curva de wibull.
+                            <center>
+                                <img src="img/metodologia/rose.png" alt=""/>
+                                <img src="img/metodologia/weibull.png" alt=""/>
+                                <img src="img/metodologia/wind.png" alt=""/>
+                            </center>
+                        </div>
+                    </p:fieldset>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

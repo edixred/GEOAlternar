@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMapsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewMapsLabel_mapsPK_longitude}"/>
+                    <h:outputText value="#{mapsController.selected.mapsPK.longitude}" title="#{bundle.ViewMapsTitle_mapsPK_longitude}"/>
+                    <h:outputText value="#{bundle.ViewMapsLabel_mapsPK_tagType}"/>
+                    <h:outputText value="#{mapsController.selected.mapsPK.tagType}" title="#{bundle.ViewMapsTitle_mapsPK_tagType}"/>
+                    <h:outputText value="#{bundle.ViewMapsLabel_mapsPK_latitude}"/>
+                    <h:outputText value="#{mapsController.selected.mapsPK.latitude}" title="#{bundle.ViewMapsTitle_mapsPK_latitude}"/>
+                    <h:outputText value="#{bundle.ViewMapsLabel_mapsPK_tagTime}"/>
+                    <h:outputText value="#{mapsController.selected.mapsPK.tagTime}" title="#{bundle.ViewMapsTitle_mapsPK_tagTime}"/>
+                    <h:outputText value="#{bundle.ViewMapsLabel_value}"/>
+                    <h:outputText value="#{mapsController.selected.value}" title="#{bundle.ViewMapsTitle_value}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mapsController.destroyAndView}" value="#{bundle.ViewMapsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewMapsEditLink}"/>
+                <br />
+                <h:commandLink action="#{mapsController.prepareCreate}" value="#{bundle.ViewMapsCreateLink}" />
+                <br />
+                <h:commandLink action="#{mapsController.prepareList}" value="#{bundle.ViewMapsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewMapsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMapsWindTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMapsWindLabel_mapsWindPK_tagTime}" for="mapsWindPK_tagTime" />
+                    <h:inputText id="mapsWindPK_tagTime" value="#{mapsWindController.selected.mapsWindPK.tagTime}" title="#{bundle.CreateMapsWindTitle_mapsWindPK_tagTime}" required="true" requiredMessage="#{bundle.CreateMapsWindRequiredMessage_mapsWindPK_tagTime}"/>
+                    <h:outputLabel value="#{bundle.CreateMapsWindLabel_valuePoint}" for="valuePoint" />
+                    <h:inputText id="valuePoint" value="#{mapsWindController.selected.valuePoint}" title="#{bundle.CreateMapsWindTitle_valuePoint}" />
+                    <h:outputLabel value="#{bundle.CreateMapsWindLabel_grid450}" for="grid450" />
+                    <h:selectOneMenu id="grid450" value="#{mapsWindController.selected.grid450}" title="#{bundle.CreateMapsWindTitle_grid450}" required="true" requiredMessage="#{bundle.CreateMapsWindRequiredMessage_grid450}">
+                        <f:selectItems value="#{grid450Controller.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mapsWindController.create}" value="#{bundle.CreateMapsWindSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mapsWindController.prepareList}" value="#{bundle.CreateMapsWindShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMapsWindIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

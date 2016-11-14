@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition template="./plantilla/menu.xhtml">
+            <ui:define name="top"></ui:define>
+            <ui:define name="content">
+                <!-- FORMULARIO DE REGISTRO DE DATOS PERSONALES-->
+                <div id="divRegCuenta">
+                    <center>
+                        <br/>
+                        <div style="width: 50%; margin-left: 20%; margin-right: 20%; font: oblique 120% cursive; text-align: center;">
+                            Para conocer la infromación que brinda la plataforma GEOALTERNAR diligenciar el siguiente formulario y posteriormente iniciar sesion
+                        </div>
+                        <p:panel header="Ingrese su Datos Personales" style=" width: 60%; margin-top: 2%;   margin-left: 10%; margin-right: 10%; alignment-adjust: auto;" >
+                            <h:form id="frmRegistrarUsuario" >
+                                <p:growl id="mensajeGeneral" showDetail="true" sticky="false"/>
+                                <h:panelGrid columns="3" cellpadding="15">
+                                    <p:outputLabel value="Nombres: " for="txtNombre"/>
+                                    <h:inputText  id="txtNombre" label="Nombre" value="#{mbRUsuario.getUsuario().name}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                    </h:inputText>
+                                    <p:message for="txtNombre"/>
+                                    <p:outputLabel value="Apellidos: " for="txtApellido"/>
+                                    <h:inputText id="txtApellido" label="Apellidos" value="#{mbRUsuario.getUsuario().lastname}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                    </h:inputText>
+                                    <p:message for="txtApellido"/>
+                                    <p:outputLabel value="E-mail: " for="txtEmail"/>
+                                    <h:inputText id="txtEmail" label="Email" title="ejemplo: alguien@example.com" value="#{mbRUsuario.getUsuario().email}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                        <f:validator validatorId="validatorEmail"/>
+                                    </h:inputText>
+                                    <h:panelGroup>
+                                        <p:tooltip for="txtEmail" showEvent="focus" hideEvent="blur"/>
+                                        <p:message for="txtEmail"/>
+                                    </h:panelGroup>
+                                    <p:outputLabel value="Clave: " for="txtPassword"/>
+                                    <p:password  id="txtPassword" label="Clave" value="#{mbRUsuario.getUsuario().password}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                    </p:password>
+                                    <p:message for="txtPassword"/>
+                                    <p:outputLabel value="Repita la Clave: " for="txtPassword2"/>
+                                    <p:password  id="txtPassword2" label="Repita Clave" value="#{mbRUsuario.txtContraseniaRepita}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                    </p:password>
+                                    <h:panelGroup />
+                                    <p:outputLabel value="Organizacion: "  for="txtOrganizacion"/>
+                                    <h:inputText  id="txtOrganizacion" label="Organización" title="Lugar donde labora o estudia" value="#{mbRUsuario.getUsuario().organitation}">
+                                        <f:validator validatorId="validatorVacio"/>
+                                    </h:inputText>
+                                    <h:panelGroup>
+                                        <p:message for="txtOrganizacion"/>
+                                        <p:tooltip for="txtOrganizacion" showEvent="focus" hideEvent="blur"/>
+                                    </h:panelGroup>
+                                    <br></br>
+                                    <p:commandButton value="Registrar" icon="ui-icon-disk" ajax="true" actionListener="#{mbRUsuario.resgister()}" update="frmRegistrarUsuario"/>
+                                </h:panelGrid>
+                                <p:ajaxStatus style="display:block;margin-bottom:2em;height:24px;">
+                                    <f:facet name="start">
+                                        <p:graphicImage value="./img/process.gif" styleClass="content" />
+                                    </f:facet>
+                                    <f:facet name="complete">
+                                        
+                                    </f:facet>
+                                </p:ajaxStatus>
+                                <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                    <p:graphicImage value="./img/process.gif" />
+                                </p:dialog>
+                            </h:form>
+                        </p:panel>
+                    </center>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

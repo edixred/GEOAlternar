@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMapsBiomassTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateMapsBiomassLabel_mapsBiomassPK_tagTime}" for="mapsBiomassPK_tagTime" />
+                    <h:inputText id="mapsBiomassPK_tagTime" value="#{mapsBiomassController.selected.mapsBiomassPK.tagTime}" title="#{bundle.CreateMapsBiomassTitle_mapsBiomassPK_tagTime}" required="true" requiredMessage="#{bundle.CreateMapsBiomassRequiredMessage_mapsBiomassPK_tagTime}"/>
+                    <h:outputLabel value="#{bundle.CreateMapsBiomassLabel_valuePoint}" for="valuePoint" />
+                    <h:inputText id="valuePoint" value="#{mapsBiomassController.selected.valuePoint}" title="#{bundle.CreateMapsBiomassTitle_valuePoint}" />
+                    <h:outputLabel value="#{bundle.CreateMapsBiomassLabel_grid450}" for="grid450" />
+                    <h:selectOneMenu id="grid450" value="#{mapsBiomassController.selected.grid450}" title="#{bundle.CreateMapsBiomassTitle_grid450}" required="true" requiredMessage="#{bundle.CreateMapsBiomassRequiredMessage_grid450}">
+                        <f:selectItems value="#{grid450Controller.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{mapsBiomassController.create}" value="#{bundle.CreateMapsBiomassSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{mapsBiomassController.prepareList}" value="#{bundle.CreateMapsBiomassShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateMapsBiomassIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

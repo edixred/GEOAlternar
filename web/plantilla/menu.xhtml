@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>GEOAlternar -Análisis de Fuentes Alternativas de Energía </title>
+        <h:outputStylesheet library="css" name="style.css"  />
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top" style="font-size: 10px;">
+            <h:form>
+                <p:megaMenu >
+                    <p:submenu label="Inicio" icon="ui-icon-home" style="width:100px">
+                        <p:column>
+                            <p:submenu label="Recorrido">
+                                <p:menuitem value="Inicio" url="/faces/main.html" icon="ui-icon-extlink"/>
+                                <p:menuitem value="Objetivos " url="/faces/Objetivos.xhtml" icon="ui-icon-extlink"/>
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:submenu label="Mapas Energéticos" icon="ui-icon-person" style="width:200px">
+                        <p:column>
+                            <p:submenu label="Opciones">
+                                <p:menuitem value="Datos-Visualización " url="/faces/Energia.xhtml" icon="ui-icon-document"/>
+                                <p:menuitem value="Metodología Aplicada" url="/faces/Metodologia.xhtml" icon="ui-icon-document"/>
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:submenu label="Descargar Datos" icon="ui-icon-person" style="width:200px">
+                        <p:column>
+                            <p:submenu label="Opciones">
+                                <p:menuitem value="Iniciar Sesión" url="/faces/IniciarSesion.xhtml" icon="ui-icon-newwin"/>
+                                <p:menuitem value="Crear Cuenta" url="/faces/RegistrarUsuario.xhtml" icon="ui-icon-pencil"/>
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:submenu label="Ayuda" icon="ui-icon-help" style="width:200px">
+                        <p:column>
+                            <p:submenu label="Opciones">
+                                <p:menuitem value="Contactos" url="/faces/Contacto.xhtml" icon="ui-icon-contact"/>
+                                <p:menuitem value="Manual de Usuario" url="/faces/Manual.xhtml" icon="ui-icon-document"/>
+                            </p:submenu>
+                        </p:column>
+                    </p:submenu>
+                    <p:menuitem value="ALTERNAR" url="http://alternar.udenar.edu.co" icon="ui-icon-contact" />
+                </p:megaMenu>
+            </h:form>    
+            <ui:insert name="top">
+                <!-- menu-->
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
