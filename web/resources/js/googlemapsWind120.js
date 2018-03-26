@@ -71,7 +71,7 @@ window.onload = function () {
             {type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
     );
     var general = new OpenLayers.Layer.WMS(
-            "Viento Prom. 120m.", "http://geoalternar.udenar.edu.co:8080/geoserver/MapWind120/wms",
+            "Viento Prom. 120m.", "http://190.254.4.40:8080/geoserver/MapWind120/wms",
             {
                 "LAYERS": "MapWind120:Wind120",
                 "STYLES": '',
@@ -139,7 +139,7 @@ window.onload = function () {
 function seleccionCapa(obj) {
     var namemap=obj.value.split(":");
     var band2 = new OpenLayers.Layer.WMS(
-            "Viento 120m. -" + namemap[1], "http://geoalternar.udenar.edu.co:8080/geoserver/MapWind120/wms",
+            "Viento 120m. -" + namemap[1], "http://190.254.4.40:8080/geoserver/MapWind120/wms",
             {
                 "LAYERS": namemap[1],
                 "STYLES": '',

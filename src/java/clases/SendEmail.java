@@ -40,7 +40,7 @@ public class SendEmail {
         String emailBody = "Agradecemos su registro en nuestra Plataforma. Para acceder a su cuenta" 
                             + "<br><br> Su Usuario es: "+emailDestination
                             + "<br><br> Su Clave es: "+Password
-                            +"<br>Puede acceder ingresando a <a href='geoalternar.udenar.edu.co'>geoalternar.udenar.edu.co</a>";
+                            +"<br>Puede acceder ingresando a <a href='190.254.4.40'>190.254.4.40</a>";
         generateMailMessage.setContent(emailBody, "text/html");
 //Step3	
         Transport transport = getMailSession.getTransport("smtp");
@@ -67,7 +67,7 @@ public class SendEmail {
                             + "<br><br> Su Usuario es: "+emailDestination
                             + "<br><br> Su Nueva Clave es: "+Password
                             +"<br><br><br>Gracias por usar Nuestros servicios"
-                            + "<br><br>Puede acceder ingresando a <a href='geoalternar.udenar.edu.co'>GEOAlternar</a>";
+                            + "<br><br>Puede acceder ingresando a <a href='190.254.4.40'>GEOAlternar</a>";
         generateMailMessageP.setContent(emailBody, "text/html");
 //Step3	
         Transport transport = getMailSessionP.getTransport("smtp");

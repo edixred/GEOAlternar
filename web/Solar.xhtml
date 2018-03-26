@@ -22,7 +22,7 @@
                         <p:fieldset legend="Mapa General de Irradiación" toggleable="true" toggleSpeed="300" collapsed="false" style=" width: 90%; font-size: 10px;">
                             <h:outputText value="Irradiación (W/m²)" /><br></br>
                             <p:graphicImage value="./img/scale/scaleSun.png" styleClass="content" height="260px" width="55x" style="margin-left: 20px;"/><br></br>
-                            <p:commandButton value="Descargar Datos"  onclick="window.open('http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/IniciarSesion.xhtml')" icon="ui-icon-arrowthickstop-1-s"></p:commandButton>
+                            <p:commandButton value="Descargar Datos"  onclick="window.open('http://190.254.4.40:8080/GEOAlternar/faces/IniciarSesion.xhtml')" icon="ui-icon-arrowthickstop-1-s"></p:commandButton>
                         </p:fieldset>
                         <p:fieldset legend="Mapa de Promedio Mensual" toggleable="true" toggleSpeed="300" collapsed="true" style=" width: 90%; font-size: 10px;">
                             Seleccione el mapa que desea visualizar<br></br><br></br>
@@ -33,7 +33,7 @@
                         </p:selectOneMenu><br></br><br></br>
                         <h:outputText value="Irradiación (W/m²)" /><br></br>
                         <p:graphicImage value="./img/scale/scaleSun.png" styleClass="content" height="260px" width="55x" style="margin-left: 20px;"/><br></br>
-                        <p:commandButton value="Descargar Datos"  onclick="window.open('http://geoalternar.udenar.edu.co:8080/GEOAlternar/faces/IniciarSesion.xhtml')" icon="ui-icon-arrowthickstop-1-s"></p:commandButton>
+                        <p:commandButton value="Descargar Datos"  onclick="window.open('http://190.254.4.40:8080/GEOAlternar/faces/IniciarSesion.xhtml')" icon="ui-icon-arrowthickstop-1-s"></p:commandButton>
                         </p:fieldset>
                         <p:fieldset legend="Mapa de Promedio Anual" toggleable="true" toggleSpeed="300" collapsed="true" style=" width: 90%; font-size: 10px;">
                         <p:selectOneMenu  value="#{mBRMap.capaSelecionada}" id="comboCapas2" onchange="seleccionCapa(this)" style="width: 70%;" immediate="true"
