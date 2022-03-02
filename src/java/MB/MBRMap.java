@@ -1164,13 +1164,13 @@ public class MBRMap implements Serializable {
     public void actualizarCapa() {
         capa = selectCapa.getValue().toString();
         String[] mesfuente = capa.split(":");//DEFINIR EL MAPA ACTUAL Y LA FUENTE DE ENERGIA
-        url = "http://geoalternar.udenar.edu.co:8080/geoserver/" + mesfuente[0] + "/wms?service=WMS&version=1.1.0&request=GetMap&layers=" + capa + "&styles=&bbox=-8797736.0588021,36507.00740467082,-8548436.0588021,301557.007404671&width=481&height=512&srs=EPSG:3857&format=image%2Fgeotiff";
+        url = "http://190.254.4.40:8080/geoserver/" + mesfuente[0] + "/wms?service=WMS&version=1.1.0&request=GetMap&layers=" + capa + "&styles=&bbox=-8797736.0588021,36507.00740467082,-8548436.0588021,301557.007404671&width=481&height=512&srs=EPSG:3857&format=image%2Fgeotiff";
     }
 
     public void actualizarCapaMes() {
         capa = selectMesCapa.getValue().toString();
         String[] mesfuente = capa.split(":");//DEFINIR EL MAPA ACTUAL Y LA FUENTE DE ENERGIA
-        url = "http://geoalternar.udenar.edu.co:8080/geoserver/" + mesfuente[0] + "/wms?service=WMS&version=1.1.0&request=GetMap&layers=" + capa + "&styles=&bbox=-8797736.0588021,36507.00740467082,-8548436.0588021,301557.007404671&width=481&height=512&srs=EPSG:3857&format=image%2Fgeotiff";
+        url = "http://190.254.4.40:8080/geoserver/" + mesfuente[0] + "/wms?service=WMS&version=1.1.0&request=GetMap&layers=" + capa + "&styles=&bbox=-8797736.0588021,36507.00740467082,-8548436.0588021,301557.007404671&width=481&height=512&srs=EPSG:3857&format=image%2Fgeotiff";
 
     }
 

@@ -71,7 +71,7 @@ window.onload = function () {
             {type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
     );
     var general = new OpenLayers.Layer.WMS(
-            "Irradiacion General", "http://geoalternar.udenar.edu.co:8080/geoserver/MapSunMODIS/wms",
+            "Irradiacion General", "http://190.254.4.40:8080/geoserver/MapSunMODIS/wms",
             {
                 "LAYERS": "MapSunMODIS:SunMODIS",
                 "STYLES": '',
@@ -139,7 +139,7 @@ window.onload = function () {
 function seleccionCapa(obj) {
     var namemap=obj.value.split(":");
     var band2 = new OpenLayers.Layer.WMS(
-            "Irradiacion -" + namemap[1], "http://geoalternar.udenar.edu.co:8080/geoserver/MapSunMODIS/wms",
+            "Irradiacion -" + namemap[1], "http://190.254.4.40:8080/geoserver/MapSunMODIS/wms",
             {
                 "LAYERS": namemap[1],
                 "STYLES": '',

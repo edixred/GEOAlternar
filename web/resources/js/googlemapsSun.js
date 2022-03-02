@@ -71,7 +71,7 @@ window.onload = function () {
             {type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
     );
     var general = new OpenLayers.Layer.WMS(
-            "Irradiacion General", "http://geoalternar.udenar.edu.co:8080/geoserver/MapGeneral/wms",
+            "Irradiacion General", "http://190.254.4.40:8080/geoserver/MapGeneral/wms",
             {
                 "LAYERS": "MapGeneral:Sun",
                 "STYLES": '',
@@ -139,7 +139,7 @@ window.onload = function () {
 function seleccionCapa(obj) {
     var namemap=obj.value.split(":");
     var band2 = new OpenLayers.Layer.WMS(
-            "Irradiacion -" + namemap[1], "http://geoalternar.udenar.edu.co:8080/geoserver/MapSun/wms",
+            "Irradiacion -" + namemap[1], "http://190.254.4.40:8080/geoserver/MapSun/wms",
             {
                 "LAYERS": namemap[1],
                 "STYLES": '',
@@ -170,7 +170,7 @@ function reproject3857() {
     document.getElementById('frmlatlon:longitudeCap').value = Math.round(result[0],1);
 //    //point
 //    markers = new OpenLayers.Layer.Markers("Punto");
-//    map.addLayer(markers);
+//    map.addLayer(markers);4848
 //    marker = new OpenLayers.Marker(result[0], result[1]);
 //    markers.addMarker(marker);
 }

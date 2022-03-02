@@ -17,7 +17,7 @@ window.onload = function () {
       var cabeceras = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 STYLES: '',
@@ -29,7 +29,7 @@ window.onload = function () {
       var limitescuenca = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 STYLES: '',
@@ -41,7 +41,7 @@ window.onload = function () {
       var drenajedoble = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 STYLES: '',
@@ -53,7 +53,7 @@ window.onload = function () {
       var cuenca = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 STYLES: '',
@@ -64,7 +64,7 @@ window.onload = function () {
       var cuenca2 = new ol.layer.Tile({
         visible: true,
         source: new ol.source.TileWMS({
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format, 
                    'VERSION': '1.1.1',
                    tiled: true,
@@ -77,7 +77,7 @@ window.onload = function () {
       var untiled = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
                 STYLES: '',
@@ -88,7 +88,7 @@ window.onload = function () {
       var tiled = new ol.layer.Tile({
         visible: false,
         source: new ol.source.TileWMS({
-          url: 'http://geoalternar.udenar.edu.co:8080/geoserver/MapRiver/wms',
+          url: 'http://190.254.4.40:8080/geoserver/MapRiver/wms',
           params: {'FORMAT': format, 
                    'VERSION': '1.1.1',
                    tiled: true,

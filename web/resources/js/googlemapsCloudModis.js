@@ -71,7 +71,7 @@ window.onload = function () {
             {type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
     );
     var general = new OpenLayers.Layer.WMS(
-            "Probabilidad Nubosidad", "http://geoalternar.udenar.edu.co:8080/geoserver/mapcloud/wms",
+            "Probabilidad Nubosidad", "http://190.254.4.40:8080/geoserver/mapcloud/wms",
             {
                 "LAYERS": "mapcloud:General",
                 "STYLES": '',
@@ -139,7 +139,7 @@ window.onload = function () {
 function seleccionCapa(obj) {
     var namemap=obj.value.split(":");
     var band2 = new OpenLayers.Layer.WMS(
-            "Nubes -" + namemap[1], "http://geoalternar.udenar.edu.co:8080/geoserver/mapcloud/wms",
+            "Nubes -" + namemap[1], "http://190.254.4.40:8080/geoserver/mapcloud/wms",
             {
                 "LAYERS": namemap[1],
                 "STYLES": '',
